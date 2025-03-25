@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技创未来 | 先锋科技</title>
+    <!-- logo -->
+     <link rel="stylesheet" href="css/logo.css">
+    <!-- 导航栏  -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <!-- 基础样式 -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- 首页 -->
+    <link rel="stylesheet" href="css/page1.css">
+    <!-- 公司介绍页 -->
+    <link rel="stylesheet" href="css/page2.css">
+  
+</head>
+<body>
+    
+    <!-- logo -->
+    <div class="logo-container"></div>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#home">首页</a>
+            <a href="#about">关于</a>
+            <a href="#products">产品</a>
+            <a href="#contact">联系</a>
+        </div>
+    </nav>
+
+    <!-- 首页 -->
+    <section class="page1" id="home">
+        <div class="carousel">
+            <!-- 轮播图1 -->
+            <div class="slide active" style="background: url('./images/晨曦.jpg') center/cover">
+                <div class="hero-text">
+                    <h1>引领科技创新</h1>
+                    <p>人工智能 | 区块链 | 量子计算</p>
+                </div>
+            </div>
+            <!-- 轮播图2 -->
+            <!-- <div class="slide" style="background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover">
+                <div class="hero-text">
+                    <h1>云端智能,引领时代</h1>
+                    <p>机器学习 | 物联网 | 边缘计算</p>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- 公司介绍页 -->
+    <section class="page2" id="about">
+        <div class="about-card">
+            <h2>关于飞致</h2>
+            <p>内蒙古飞致创新科技有限公司，2024年在内蒙古鄂尔多斯市高新园区注册成立，注册资金600万；经过10年的发展，已经获得了国家级高新技术企业，科技型中小企业、创新型中小企业称号，通过了ISO9001质量管理体系认证，获得了23件计算机软件著作权，12项注册商标，发明专利受理2项。公司具有一批经验丰富、敬业务实的专业人员，充分保证了产品实施和开发质量。</p>
+            <!-- <a href="#" class="cta-button">了解更多</a> -->
+        </div>
+    </section>
+    <!-- 公司产品页 -->
+    <section class="page3" id="products">
+        <div class="products-six">
+            
+        </div>
+    </section>
+
+    <script>
+        // 轮播图逻辑
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // 自动播放
+        // setInterval(nextSlide, 5000);
+
+        // 导航栏滚动效果
+        // window.addEventListener('scroll', () => {
+        //     const nav = document.querySelector('.navbar');
+        //     if (window.scrollY > 50) {
+        //         nav.style.background = 'rgba(0,163,233,0.95)';
+        //         nav.style.padding = '15px 50px';
+                
+        //     } else {
+        //         nav.style.background = 'rgba(0,163,233,0.8)';
+        //         nav.style.padding = '20px 50px';
+        //     }
+        // });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
